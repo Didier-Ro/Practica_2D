@@ -33,10 +33,19 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Character Action")
 	void StartAttack(const FInputActionValue& value);
 
+	UFUNCTION(BlueprintCallable, Category = "Character Health")
+	void MakeDamage(const float damage);
+
+	UFUNCTION(BlueprintCallable, Category = "Character Health")
+	void RestoreHealth(const float health);
+	
 protected:
 	virtual void BeginPlay() override;
 	
 	virtual void Tick(float DeltaSeconds) override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Health", meta=(UIMin = "0.0", UIMax = "1.0"))
+	float currentHealth;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	float CurrentDirection{};

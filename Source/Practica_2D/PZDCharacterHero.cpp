@@ -83,6 +83,16 @@ void APZDCharacterHero::StartAttack(const FInputActionValue& value)
 	}
 }
 
+void APZDCharacterHero::MakeDamage(const float damage)
+{
+	currentHealth -= damage;
+}
+
+void APZDCharacterHero::RestoreHealth(const float health)
+{
+	currentHealth += health;
+}
+
 void APZDCharacterHero::CancelMoveRight(const FInputActionValue& value)
 {
 	CurrentDirection = 0.f;
